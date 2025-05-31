@@ -1,0 +1,94 @@
+DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My College</title>
+    <style>
+        /* Page styling */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to right, #eef2f3, #8e9eab);
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        /* Header style */
+        header {
+            background-color: #2e3d49;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Article container */
+        article {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Headings */
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-size: 1.8em;
+            margin-top: 30px;
+            color: #2e3d49;
+        }
+
+        /* Paragraph text */
+        p {
+            line-height: 1.6;
+            font-size: 1.1em;
+            margin: 15px 0;
+            text-align: justify;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #2e3d49;
+            color: white;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>My College</h1>
+    </header>
+	<center>
+    <img  src ="https://www.gecbuxar.ac.in/wp-content/uploads/sites/3/2024/04/file_662a61aa3d3ad-scaled.jpeg" height="500" width="800">
+	</center>
+    <article>
+        <h2>Introduction</h2>
+        <p>My college name is gaya college of engineering.It is not just a place of education—it's a vibrant community where dreams begin to take shape. Located in a serene environment with modern infrastructure, my college provides the perfect atmosphere for learning and personal development.</p>
+
+        <h2>Academic Environment</h2>
+        <p>The college boasts excellent faculty members who are not only knowledgeable but also passionate about teaching. We are offered a variety of courses, from engineering to arts, all supported by well-equipped labs, libraries, and digital resources.</p>
+
+        <h2>Campus Life</h2>
+        <p>Life at my college is a blend of academic rigor and extracurricular excitement. From cultural fests and tech events to sports tournaments, students have numerous opportunities to showcase their talents and develop leadership skills.</p>
+
+        <h2>Conclusion</h2>
+        <p>My college has played a pivotal role in shaping my future. It is more than just an institution—it is a place where I’ve grown, learned, and created unforgettable memories.</p>
+    </article>
+
+    <footer>
+        &copy; 2025 My College | All Rights Reserved
+    </footer>
+
+</body>
+</html>
