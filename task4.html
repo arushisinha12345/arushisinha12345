@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>My College</title>
+    <style>
+        :root {
+            --primary-color: #2e3d49;
+            --overlay-bg: rgba(255, 255, 255, 0.9);
+            --text-color: #333;
+            --border-color: #2e3d49;
+        }
+
+        /* Reset some default margins/padding */
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text-color);
+
+            /* Background Image */
+            background-image: url('https://images.pexels.com/photos/256541/pexels-photo-256541.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+        }
+
+        /* Overlay to make content readable */
+        .overlay {
+            background-color: var(--overlay-bg);
+            min-height: 100vh;
+            padding: 0 20px 40px 20px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 25px 15px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.35);
+            border-radius: 0 0 10px 10px;
+            user-select: none;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 3rem;
+            letter-spacing: 2px;
+            font-weight: 700;
+        }
+
+        .main-image {
+            display: block;
+            max-width: 800px;
+            width: 90%;
+            margin: 30px auto;
+            border-radius: 15px;
+            border: 5px solid var(--border-color);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            object-fit: cover;
+            height: 400px;
+            transition: transform 0.3s ease;
+        }
+
+        .main-image:hover {
+            transform: scale(1.03);
+            box-shadow: 0 14px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        article {
+            background-color: white;
+            max-width: 850px;
+            margin: 40px auto;
+            padding: 30px 35px;
+            border-radius: 15px;
+            border: 2px solid var(--border-color);
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.2);
+            line-height: 1.7;
+        }
+
+        article h2 {
+            color: var(--primary-color);
+            font-size: 2.1rem;
+            margin-top: 0;
+            margin-bottom: 18px;
+            border-bottom: 3px solid var(--primary-color);
+            padding-bottom: 6px;
+        }
+
+        article p {
+            font-size: 1.15rem;
+            margin-bottom: 22px;
+            text-align: justify;
+        }
+
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 18px 15px;
+            font-size: 1rem;
+            margin-top: auto;
+            border-radius: 10px 10px 0 0;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.25);
+            user-select: none;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 900px) {
+            header h1 {
+                font-size: 2.4rem;
+            }
+            article {
+                margin: 30px 15px;
+                padding: 25px 20px;
+            }
+            .main-image {
+                height: 300px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+            article h2 {
+                font-size: 1.6rem;
+            }
+            article p {
+                font-size: 1rem;
+            }
+            .main-image {
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay">
+        <header>
+            <h1>My College</h1>
+        </header>
+
+        <img
+            class="main-image"
+            src="https://www.gecbuxar.ac.in/wp-content/uploads/sites/3/2024/04/file_662a61aa3d3ad-scaled.jpeg"
+            alt="Gaya College of Engineering Building"
+            loading="lazy"
+        />
+
+        <article>
+            <h2>Introduction</h2>
+            <p>
+                My college name is Gaya College of Engineering. It is not just a place of education—it's a vibrant community where dreams begin to take shape.
+                Located in a serene environment with modern infrastructure, my college provides the perfect atmosphere for learning and personal development.
+            </p>
+
+            <h2>Academic Environment</h2>
+            <p>
+                The college boasts excellent faculty members who are not only knowledgeable but also passionate about teaching.
+                We are offered a variety of courses, from engineering to arts, all supported by well-equipped labs, libraries, and digital resources.
+            </p>
+
+            <h2>Campus Life</h2>
+            <p>
+                Life at my college is a blend of academic rigor and extracurricular excitement.
+                From cultural fests and tech events to sports tournaments, students have numerous opportunities to showcase their talents and develop leadership skills.
+            </p>
+
+            <h2>Conclusion</h2>
+            <p>
+                My college has played a pivotal role in shaping my future. It is more than just an institution—it is a place where I’ve grown, learned, and created unforgettable memories.
+            </p>
+        </article>
+
+        <footer>&copy; 2025 My College | All Rights Reserved</footer>
+    </div>
+</body>
+</html>
