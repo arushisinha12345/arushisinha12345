@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Wildlife Conservation</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: url('https://images.pexels.com/photos/247376/pexels-photo-247376.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260') no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+      position: relative;
+      transition: 0.5s;
+    }
+
+    body.light-theme {
+      background: #f0f0f0;
+      color: #111;
+    }
+
+    .overlay {
+      background-color: rgba(0, 0, 0, 0.6);
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: -1;
+    }
+
+    nav {
+      background: rgba(0, 0, 0, 0.85);
+      padding: 1rem;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+
+    body.light-theme nav {
+      background: white;
+      color: black;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: white;
+      margin: 0 20px;
+      font-weight: bold;
+      font-size: 18px;
+      transition: color 0.3s ease;
+    }
+
+    body.light-theme nav a {
+      color: black;
+    }
+
+    nav a:hover {
+      color: #ffd700;
+    }
+
+    .theme-toggle {
+      margin: 15px;
+      text-align: center;
+    }
+
+    .theme-toggle button {
+      padding: 10px 20px;
+      border-radius: 20px;
+      border: none;
+      cursor: pointer;
+      background-color: #ffd700;
+      font-weight: bold;
+      color: #000;
+    }
+
+    .hero {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 80vh;
+      text-align: center;
+    }
+
+    .glass-box {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
+    }
+
+    .container {
+      padding: 40px 20px;
+      background-color: rgba(0, 0, 0, 0.6);
+      margin: 30px auto;
+      border-radius: 15px;
+      max-width: 900px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+    }
+
+    body.light-theme .container {
+      background: white;
+      color: #000;
+    }
+
+    h1, h2 {
+      text-align: center;
+      text-shadow: 2px 2px 4px black;
+    }
+
+    p {
+      line-height: 1.6;
+      font-size: 18px;
+      text-shadow: 1px 1px 2px black;
+    }
+
+    .card {
+      background: white;
+      color: black;
+      border-radius: 15px;
+      padding: 20px;
+      margin: 20px auto;
+      max-width: 600px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+    }
+
+    .card img {
+      width: 100%;
+      border-radius: 10px;
+      margin-top: 15px;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      margin: 20px auto;
+      background: #ffd700;
+      color: #000;
+      padding: 12px 25px;
+      border-radius: 25px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+
+    .cta-btn:hover {
+      background: #ffc107;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: rgba(0,0,0,0.8);
+      color: white;
+      margin-top: 40px;
+    }
+
+    .page {
+      display: none;
+      animation: fadeIn 0.6s ease-in-out;
+    }
+
+    .active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="overlay"></div>
+
+  <nav>
+    <a href="#" onclick="showPage('home')">🏠 Home</a>
+    <a href="#" onclick="showPage('animals')">🐯 Animals</a>
+    <a href="#" onclick="showPage('contact')">📬 Contact</a>
+  </nav>
+
+  <div class="theme-toggle">
+    <button onclick="toggleTheme()">🌓 Toggle Theme</button>
+  </div>
+
+  <!-- Home Page -->
+  <div id="home" class="container page active">
+    <div class="hero">
+      <div class="glass-box">
+        <h1>Welcome to Wildlife Conservation 🌿</h1>
+        <p>Our mission is to protect endangered species and preserve habitats. Join us in restoring the balance of nature.</p>
+        <a href="#contact" class="cta-btn">Join the Mission</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Animals Page -->
+  <div id="animals" class="container page">
+    <h1>Endangered Animals</h1>
+
+    <div class="card">
+      <h2>🐅 Tiger</h2>
+      <p>Tigers are threatened by poaching and habitat loss. Their numbers have drastically reduced in the wild.</p>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/56/Tiger.50.jpg" alt="Tiger">
+    </div>
+
+    <div class="card">
+      <h2>🐼 Panda</h2>
+      <p>Native to China, pandas face a declining habitat due to deforestation and climate change.</p>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/0/0f/Grosser_Panda.JPG" alt="Panda">
+    </div>
+
+    <div class="card">
+      <h2>🐘 Elephant</h2>
+      <p>Elephants are at risk from ivory poaching and shrinking habitats. Conservation efforts are ongoing.</p>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/3/37/African_Bush_Elephant.jpg" alt="Elephant">
+    </div>
+  </div>
+
+  <!-- Contact Page -->
+  <div id="contact" class="container page">
+    <h1>Contact Us</h1>
+    <p>Want to help or learn more?</p>
+    <p>
+      🌱 <strong>Email:</strong> support@wildlife.org<br>
+      🌿 <strong>Phone:</strong> +91-9876543210<br>
+      🌍 <strong>Location:</strong> National Wildlife Office, India
+    </p>
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3651.848446115709!2d90.3994521154312!3d23.75090398458826!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c5f0aa4f7e9f%3A0x9e69a73cfbaf7b68!2sWildlife%20Conservation%20Society!5e0!3m2!1sen!2sin!4v1629286972123!5m2!1sen!2sin"
+      width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+  </div>
+
+  <footer>
+    <p>Follow us: 🌐 
+      <a href="#" style="color: #ffd700;">Facebook</a> | 
+      <a href="#" style="color: #ffd700;">Instagram</a> | 
+      <a href="#" style="color: #ffd700;">Twitter</a>
+    </p>
+    <p>&copy; 2025 Wildlife Conservation. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function showPage(id) {
+      const pages = document.querySelectorAll('.page');
+      pages.forEach(page => page.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+    }
+
+    function toggleTheme() {
+      document.body.classList.toggle('light-theme');
+    }
+  </script>
+
+</body>
+</html>
