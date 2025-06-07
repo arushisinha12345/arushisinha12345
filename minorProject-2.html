@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Arushi Sinha - Resume</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b') no-repeat center center fixed;
+      background-size: cover;
+      color: #333;
+    }
+
+    .container {
+      width: 80%;
+      margin: 40px auto;
+      background-color: rgba(255, 255, 255, 0.95); /* semi-transparent white */
+      padding: 30px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+      border-radius: 10px;
+    }
+
+    .resume-title {
+      text-align: center;
+      font-size: 32px;
+      color: #003366;
+      margin-bottom: 30px;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      text-decoration: underline; /* underlined heading */
+    }
+
+    h1, h2 {
+      color: #003366;
+      border-bottom: 2px solid #3399ff;
+      padding-bottom: 5px;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .contact-info p {
+      margin: 4px 0;
+    }
+
+    .contact-info a {
+      text-decoration: none;
+      color: #0066cc;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+
+    table, th, td {
+      border: 1px solid #666;
+    }
+
+    th {
+      background-color: #3399ff;
+      color: white;
+    }
+
+    th, td {
+      padding: 10px;
+      text-align: center;
+    }
+
+    .two-column {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .two-column ul {
+      flex: 1;
+      background: #f0f8ff;
+      padding: 15px;
+      border-radius: 8px;
+      list-style: square;
+    }
+
+    ol {
+      background: #f0f8ff;
+      padding: 15px;
+      border-radius: 8px;
+      list-style-type: decimal-leading-zero;
+    }
+
+    .declaration {
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #e6f2ff;
+      border-left: 5px solid #3399ff;
+    }
+
+    @media screen and (max-width: 768px) {
+      .header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .two-column {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="resume-title">Resume</div>
+
+    <div class="header">
+      <div>
+        <h1>Arushi Sinha</h1>
+        <div class="contact-info">
+          <p>📧 <a href="mailto:arushi@example.com">arushi@example.com</a></p>
+          <p>🔗 <a href="https://linkedin.com/in/arushisinha" target="_blank">linkedin.com/in/arushisinha</a></p>
+          <p>📞 +91-9876543210</p>
+          <p>📍 Gaya, Bihar, India</p>
+        </div>
+      </div>
+    </div>
+
+    <h2>Career Objective</h2>
+    <p>
+      To obtain a challenging position as a Software Engineer where I can apply my programming skills, problem-solving abilities, and continuous learning attitude to contribute to innovative projects and organizational growth.
+    </p>
+
+    <h2>Academic Qualifications</h2>
+    <table>
+      <tr>
+        <th>Course</th>
+        <th>Institution</th>
+        <th>Year</th>
+        <th>CGPA / %</th>
+      </tr>
+      <tr>
+        <td><strong>Pursuing B.Tech (CSE)</strong></td>
+        <td>Gaya College of Engineering</td>
+        <td>2022 - Present</td>
+        <td>8.7</td>
+      </tr>
+      <tr>
+        <td>Intermediate (12th)</td>
+        <td>Golden Bell Public School, Gaya</td>
+        <td>2021</td>
+        <td>87%</td>
+      </tr>
+      <tr>
+        <td>Matriculation (10th)</td>
+        <td>Loyola School, Harnaut</td>
+        <td>2019</td>
+        <td>92%</td>
+      </tr>
+    </table>
+
+    <h2>Skills & Strengths</h2>
+    <div class="two-column">
+      <ul>
+        <strong>Technical Skills</strong>
+        <li>C, C++, Python</li>
+        <li>HTML, CSS, JavaScript</li>
+        <li>MySQL, DBMS</li>
+        <li>Data Structures and Algorithms</li>
+      </ul>
+      <ul>
+        <strong>Strengths</strong>
+        <li>Quick Learner</li>
+        <li>Team Collaboration</li>
+        <li>Strong Communication</li>
+        <li>Logical Thinking</li>
+      </ul>
+    </div>
+
+    <h2>Hobbies</h2>
+    <ol>
+      <li>Reading Technical Blogs</li>
+      <li>Sketching</li>
+      <li>Listening to Music</li>
+      <li>Exploring New Technologies</li>
+    </ol>
+
+    <h2>Declaration</h2>
+    <div class="declaration">
+      <p>
+        I hereby declare that the above information is true to the best of my knowledge and belief.
+      </p>
+    </div>
+  </div>
+
+</body>
+</html>
