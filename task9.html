@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Simple Webpage</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #f0f0f0, #e0e0e0);
+    }
+
+    header {
+      background-color: #003366;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+      font-size: 28px;
+      letter-spacing: 2px;
+    }
+
+    .section-container {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 40px 20px;
+      background-color: white;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      border-radius: 12px;
+      margin: 30px auto;
+      width: 90%;
+      max-width: 1000px;
+    }
+
+    .section {
+      text-align: center;
+      width: 150px;
+      padding: 10px;
+      transition: transform 0.3s;
+    }
+
+    .section:hover {
+      transform: scale(1.05);
+    }
+
+    .section img {
+      width: 80px;
+      height: 80px;
+      margin-bottom: 10px;
+    }
+
+    .section h2 {
+      font-size: 18px;
+      color: #003366;
+      margin: 0;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      background-color: #003366;
+      color: white;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    Welcome to My Webpage
+  </header>
+
+  <div class="section-container">
+    <div class="section">
+      <img src="https://cdn-icons-png.flaticon.com/512/1946/1946488.png" alt="Home Icon">
+      <h2>Home</h2>
+    </div>
+    <div class="section">
+      <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="About Icon">
+      <h2>About</h2>
+    </div>
+    <div class="section">
+      <img src="https://cdn-icons-png.flaticon.com/512/709/709790.png" alt="Gallery Icon">
+      <h2>Gallery</h2>
+    </div>
+    <div class="section">
+      <img src="https://cdn-icons-png.flaticon.com/512/561/561127.png" alt="Contact Icon">
+      <h2>Contact</h2>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 My Simple Webpage. All Rights Reserved.
+  </footer>
+
+</body>
+</html>
+
