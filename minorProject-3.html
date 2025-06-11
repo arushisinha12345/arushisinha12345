@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sarkari Result - Clone</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f0f0f0;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: #8B0000;
+      color: #fff;
+      text-align: center;
+      padding: 30px 10px;
+    }
+
+    header h1 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.1em;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      background-color: #333;
+    }
+
+    nav a {
+      color: #fff;
+      padding: 12px 20px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      background-color: #8B0000;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .card {
+      background: #fff;
+      padding: 20px;
+      margin-bottom: 25px;
+      border-left: 5px solid #8B0000;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    .card h2 {
+      background-color: #8B0000;
+      color: #fff;
+      font-size: 1.3em;
+      padding: 10px;
+      margin-bottom: 15px;
+    }
+
+    .links-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 15px;
+    }
+
+    .links-grid a {
+      background: #f5f5f5;
+      text-align: center;
+      padding: 12px;
+      font-weight: bold;
+      text-decoration: none;
+      color: #222;
+      border: 1px solid #ccc;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .links-grid a:hover {
+      background-color: #FFD700;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid #ccc;
+    }
+
+    th {
+      background-color: #8B0000;
+      color: #fff;
+    }
+
+    td a {
+      color: #8B0000;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    td a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 30px;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+      }
+
+      header h1 {
+        font-size: 2em;
+      }
+
+      .card h2 {
+        font-size: 1.1em;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>SARKARI RESULT</h1>
+    <p>www.sarkariresult.com</p>
+  </header>
+
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Latest Jobs</a>
+    <a href="#">Results</a>
+    <a href="#">Admit Card</a>
+    <a href="#">Syllabus</a>
+    <a href="#">Answer Key</a>
+  </nav>
+
+  <div class="container">
+
+    <div class="card">
+      <h2>🔗 Important Links</h2>
+      <div class="links-grid">
+        <a href="#">UP Police 2025</a>
+        <a href="#">SSC CGL</a>
+        <a href="#">Railway Group D</a>
+        <a href="#">CTET</a>
+        <a href="#">UPSC Pre</a>
+        <a href="#">BPSC</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>📢 Latest Notifications</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Post Name</th>
+            <th>Last Date</th>
+            <th>More Info</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>UP Police Constable 2025</td>
+            <td>30 June 2025</td>
+            <td><a href="#">View</a></td>
+          </tr>
+          <tr>
+            <td>SSC CGL Tier I</td>
+            <td>15 July 2025</td>
+            <td><a href="#">View</a></td>
+          </tr>
+          <tr>
+            <td>Railway Group D</td>
+            <td>10 July 2025</td>
+            <td><a href="#">View</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+  <footer>
+    <p>© 2025 Sarkari Result (Clone) | Created for educational use only.</p>
+  </footer>
+
+</body>
+</html>
