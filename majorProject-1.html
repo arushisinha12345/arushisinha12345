@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fashionista</title>
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/892/892458.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Montserrat&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #d63384;
+      --light-bg: #fff;
+      --light-text: #222;
+      --dark-bg: #121212;
+      --dark-text: #f5f5f5;
+      --card-light: #fff0f5;
+      --card-dark: #2a2a2a;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: var(--light-bg);
+      color: var(--light-text);
+      transition: all 0.3s ease-in-out;
+    }
+    h1, h2, h3 {
+      font-family: 'Playfair Display', serif;
+    }
+    header {
+      background: linear-gradient(to right, #ffdde1, #ee9ca7);
+      padding: 20px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    header h1 {
+      font-size: 28px;
+      color: var(--primary);
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+    nav a {
+      text-decoration: none;
+      font-weight: 600;
+      color: var(--light-text);
+      position: relative;
+    }
+    nav a::after {
+      content: '';
+      position: absolute;
+      height: 2px;
+      width: 0;
+      left: 0;
+      bottom: -4px;
+      background: var(--primary);
+      transition: width 0.3s;
+    }
+    nav a:hover::after {
+      width: 100%;
+    }
+    .theme-toggle {
+      display: none;
+    }
+    .toggle-label {
+      cursor: pointer;
+      font-size: 20px;
+      margin-left: 15px;
+    }
+    .hero {
+      background: url('https://images.unsplash.com/photo-1503342217505-b0a15ec3261c') no-repeat center center/cover;
+      height: 90vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+      position: relative;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+    }
+    .hero-text {
+      position: relative;
+      color: white;
+      background: rgba(0, 0, 0, 0.3);
+      padding: 30px;
+      border-radius: 10px;
+    }
+    section {
+      padding: 60px 20px;
+      text-align: center;
+    }
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      margin-top: 30px;
+    }
+    .card {
+      background: var(--card-light);
+      padding: 20px;
+      width: 280px;
+      border-radius: 10px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    }
+    .images {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px;
+      margin-top: 30px;
+    }
+    .images img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 10px;
+      transition: transform 0.3s;
+    }
+    .images img:hover {
+      transform: scale(1.05);
+    }
+    form {
+      max-width: 500px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-top: 30px;
+    }
+    form input, form textarea {
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    form button {
+      padding: 12px;
+      border: none;
+      background-color: var(--primary);
+      color: white;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    form button:hover {
+      background-color: #b02a6c;
+    }
+    footer {
+      background: linear-gradient(to right, #ee9ca7, #ffdde1);
+      padding: 20px;
+      text-align: center;
+      color: #333;
+      font-size: 14px;
+    }
+    .theme-toggle:checked ~ body {
+      background: var(--dark-bg);
+      color: var(--dark-text);
+    }
+    .theme-toggle:checked ~ body header,
+    .theme-toggle:checked ~ body footer {
+      background: #1e1e1e;
+    }
+    .theme-toggle:checked ~ body nav a {
+      color: var(--dark-text);
+    }
+    .theme-toggle:checked ~ body .card {
+      background: var(--card-dark);
+      color: var(--dark-text);
+    }
+    .theme-toggle:checked ~ body form input,
+    .theme-toggle:checked ~ body form textarea {
+      background: #2a2a2a;
+      color: #f5f5f5;
+      border: 1px solid #555;
+    }
+    @media (max-width: 768px) {
+      nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+      .container {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <input type="checkbox" id="darkToggle" class="theme-toggle" />
+  <header>
+    <div class="container">
+      <h1>👠 Fashionista</h1>
+      <nav>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#trends">Trends</a></li>
+          <li><a href="#collection">Collection</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <label for="darkToggle" class="toggle-label" title="Toggle Dark Mode">🌙</label>
+    </div>
+  </header>
+
+  <section class="hero" id="home">
+    <div class="hero-text">
+      <h2>Style is Forever</h2>
+      <p>Discover the latest fashion trends & seasonal collections</p>
+    </div>
+  </section>
+
+  <section id="trends">
+    <h2>Top Trends 2025</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Minimal Chic</h3>
+        <p>Sleek, simple and sophisticated — perfect for any day look.</p>
+      </div>
+      <div class="card">
+        <h3>Pastel Power</h3>
+        <p>Soft hues dominate the spring runway, from lilac to mint green.</p>
+      </div>
+      <div class="card">
+        <h3>Denim Reloaded</h3>
+        <p>From wide-leg jeans to embellished jackets, denim is back!</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="collection">
+    <h2>Lookbook</h2>
+    <div class="images">
+      <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab" alt="Model 1">
+      <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c" alt="Model 2">
+      <img src="https://images.unsplash.com/photo-1516762689617-e1cffcef479d" alt="Model 3">
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <form>
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Your Email" required />
+      <textarea placeholder="Your Message" required></textarea>
+      <button type="submit">Send</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Fashionista | Designed by Arushi</p>
+  </footer>
+</body>
+</html>
