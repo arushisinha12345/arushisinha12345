@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Combined Array Exercises</title>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            background-color: #f8fafc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+            box-sizing: border-box;
+        }
+        div {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            background-color: #fefefe;
+        }
+        h1 {
+            text-align: center;
+            color: #2d3748;
+            margin-bottom: 30px;
+            font-size: 2.2em;
+        }
+        h2 {
+            color: #4a5568;
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #4a5568;
+        }
+        input[type="text"] {
+            width: calc(100% - 12px);
+            padding: 10px;
+            border: 1px solid #cbd5e0;
+            border-radius: 6px;
+            box-sizing: border-box;
+            font-size: 1em;
+        }
+        button {
+            padding: 10px 20px;
+            margin-top: 15px;
+            background-color: #4299e1;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.2s ease-in-out;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #3182ce;
+        }
+        .result {
+            margin-top: 15px;
+            padding: 10px;
+            background-color: #e0f2f7;
+            color: #2c5282;
+            border-left: 4px solid #4299e1;
+            border-radius: 4px;
+            font-weight: bold;
+            display: none;
+        }
+        .message-box {
+            display: none;
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            border: 1px solid #ddd;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+            z-index: 1000;
+            text-align: center;
+            max-width: 350px;
+            width: 90%;
+            box-sizing: border-box;
+        }
+        .message-box p {
+            margin-bottom: 20px;
+            font-size: 1.1em;
+            color: #333;
+        }
+        .message-box button {
+            margin-top: 15px;
+            width: auto;
+            padding: 8px 25px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Combined Array Exercises</h1>
+
+        <div>
+            <h2>1. Sort an Array</h2>
+            <label for="sortArrayInput">Enter elements (comma-separated):</label>
+            <input type="text" id="sortArrayInput" placeholder="e.g. 3,1,4,1,5,9,2,6 or apple,banana,orange">
+            <button onclick="sortArray()">Sort Array</button>
+            <div id="sortResult" class="result"></div>
+        </div>
+
+        <div>
+            <h2>2. Concatenate Two Arrays</h2>
+            <label for="concatArray1Input">Enter elements for Array 1 (comma-separated):</label>
+            <input type="text" id="concatArray1Input" placeholder="e.g. 1,2,3 or red,green">
+            <label for="concatArray2Input">Enter elements for Array 2 (comma-separated):</label>
+            <input type="text" id="concatArray2Input" placeholder="e.g. 4,5,6 or blue,yellow">
+            <button onclick="concatenateArrays()">Concatenate Arrays</button>
+            <div id="concatResult" class="result"></div>
+        </div>
+
+        <div>
+            <h2>3. Remove First Element from Array</h2>
+            <label for="removeFirstArrayInput">Enter array elements (comma-separated):</label>
+            <input type="text" id="removeFirstArrayInput" placeholder="e.g. 1,2,3,4,5 or red,green,blue">
+            <button onclick="removeFirstElement()">Remove First Element</button>
+            <div id="removeResult" class="result"></div>
+        </div>
+    </div>
+
+    <div id="simpleMessageBox" class="message-box">
+        <p id="simpleMessageBoxText"></p>
+        <button onclick="hideSimpleMessageBox()">OK</button>
+    </div>
+
+    <script>
+        function showSimpleMessageBox(message) {
+            document.getElementById('simpleMessageBoxText').textContent = message;
+            document.getElementById('simpleMessageBox').style.display = 'block';
+        }
+
+        function hideSimpleMessageBox() {
+            document.getElementById('simpleMessageBox').style.display = 'none';
+        }
+
+        function getInputValue(id) {
+            return document.getElementById(id).value;
+        }
+
+        function showResult(id, message) {
+            const resultElement = document.getElementById(id);
+            resultElement.innerHTML = message;
+            resultElement.style.display = 'block';
+        }
+
+        function clearResult(id) {
+            const resultElement = document.getElementById(id);
+            resultElement.textContent = '';
+            resultElement.style.display = 'none';
+        }
+
+        // Exercise 1: Sort an Array
+        function sortArray() {
+            clearResult('sortResult');
+            const input = getInputValue('sortArrayInput');
+            if (!input.trim()) {
+                showSimpleMessageBox("Please enter array elements (comma-separated).");
+                return;
+            }
+
+            const elements = input.split(',').map(item => item.trim());
+            const numericElements = elements.map(Number).filter(n => !isNaN(n));
+
+            let sortedElements;
+            if (numericElements.length === elements.length) {
+                sortedElements = numericElements.sort((a, b) => a - b);
+            } else {
+                sortedElements = elements.sort();
+            }
+
+            showResult('sortResult', `Original: [${elements.join(', ')}]<br>Sorted: [${sortedElements.join(', ')}]`);
+        }
+
+        // Exercise 2: Concatenate Two Arrays
+        function concatenateArrays() {
+            clearResult('concatResult');
+            const input1 = getInputValue('concatArray1Input');
+            const input2 = getInputValue('concatArray2Input');
+
+            if (!input1.trim() && !input2.trim()) {
+                showSimpleMessageBox("Please enter elements for at least one array.");
+                return;
+            }
+
+            const array1 = input1.trim() ? input1.split(',').map(item => item.trim()) : [];
+            const array2 = input2.trim() ? input2.split(',').map(item => item.trim()) : [];
+
+            const newArray = array1.concat(array2);
+
+            showResult('concatResult', `Array 1: [${array1.join(', ')}]<br>Array 2: [${array2.join(', ')}]<br>Concatenated Array: [${newArray.join(', ')}]`);
+        }
+
+        // Exercise 3: Remove First Element from Array
+        function removeFirstElement() {
+            clearResult('removeResult');
+            const input = getInputValue('removeFirstArrayInput');
+            if (!input.trim()) {
+                showSimpleMessageBox("Please enter array elements (comma-separated).");
+                return;
+            }
+
+            const elements = input.split(',').map(item => item.trim());
+            const originalArray = [...elements];
+
+            if (elements.length === 0) {
+                showSimpleMessageBox("The array is empty. No element to remove.");
+                return;
+            }
+
+            const removedElement = elements.shift();
+
+            showResult('removeResult', `Original Array: [${originalArray.join(', ')}]<br>Removed Element: ${removedElement}<br>New Array: [${elements.join(', ')}]`);
+        }
+    </script>
+</body>
+</html>
