@@ -6,82 +6,82 @@
     <title>Simple JS Exercises</title>
     <style>
         body {
-            font-family: 'Inter', sans-serif; /* A modern, clean font */
-            margin: 0; /* Remove default body margin */
-            background-color: #f8fafc; /* Very light blue/gray background */
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            background-color: #f8fafc;
             display: flex;
-            justify-content: center; /* Center horizontally */
-            align-items: center;   /* Center vertically */
-            min-height: 100vh; /* Ensure body takes full viewport height */
-            padding: 20px; /* Add some padding around the edges */
-            box-sizing: border-box; /* Include padding in element's total width and height */
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            box-sizing: border-box;
         }
         .container {
-            background-color: #ffffff; /* White background for the main content area */
-            padding: 30px; /* More padding inside the container */
-            border-radius: 12px; /* Nicer rounded corners */
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Soft shadow */
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             width: 100%;
-            max-width: 600px; /* Max width to keep it readable on larger screens */
+            max-width: 600px;
             box-sizing: border-box;
         }
         div {
-            margin-bottom: 20px; /* Increased margin between sections */
-            padding: 15px; /* Increased padding inside each exercise section */
-            border: 1px solid #e2e8f0; /* Lighter border color */
-            border-radius: 8px; /* Rounded corners for sections */
-            background-color: #fefefe; /* Slightly off-white for sections */
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            background-color: #fefefe;
         }
         h1 {
             text-align: center;
-            color: #2d3748; /* Darker heading color */
-            margin-bottom: 30px; /* More space below main title */
-            font-size: 2.2em; /* Slightly larger main title */
+            color: #2d3748;
+            margin-bottom: 30px;
+            font-size: 2.2em;
         }
         h2 {
-            color: #4a5568; /* Slightly lighter heading color for sections */
+            color: #4a5568;
             margin-top: 0;
-            margin-bottom: 15px; /* Space below section titles */
+            margin-bottom: 15px;
             font-size: 1.5em;
         }
         label {
-            display: block; /* Make labels block-level for better spacing */
+            display: block;
             margin-bottom: 5px;
             color: #4a5568;
         }
         input[type="text"],
         input[type="number"] {
-            width: calc(100% - 12px); /* Adjust width for padding */
+            width: calc(100% - 12px);
             padding: 10px;
-            border: 1px solid #cbd5e0; /* Lighter border for inputs */
+            border: 1px solid #cbd5e0;
             border-radius: 6px;
-            box-sizing: border-box; /* Include padding in input's total width */
+            box-sizing: border-box;
             font-size: 1em;
         }
         button {
             padding: 10px 20px;
-            margin-top: 15px; /* More space above buttons */
-            background-color: #4299e1; /* Blue button */
+            margin-top: 15px;
+            background-color: #4299e1;
             color: white;
             border: none;
             border-radius: 6px;
             cursor: pointer;
             font-size: 1em;
-            transition: background-color 0.2s ease-in-out; /* Smooth transition on hover */
-            width: 100%; /* Make buttons full width */
+            transition: background-color 0.2s ease-in-out;
+            width: 100%;
         }
         button:hover {
-            background-color: #3182ce; /* Darker blue on hover */
+            background-color: #3182ce;
         }
         .result {
-            margin-top: 15px; /* More space above results */
+            margin-top: 15px;
             padding: 10px;
-            background-color: #e0f2f7; /* Light blue background for results */
-            color: #2c5282; /* Darker blue text for results */
-            border-left: 4px solid #4299e1; /* Blue left border for emphasis */
+            background-color: #e0f2f7;
+            color: #2c5282;
+            border-left: 4px solid #4299e1;
             border-radius: 4px;
             font-weight: bold;
-            display: none; /* Hidden by default, JavaScript will show it */
+            display: none;
         }
         .message-box {
             display: none;
@@ -94,10 +94,10 @@
             padding: 30px;
             border-radius: 10px;
             box-shadow: 0 5px 20px rgba(0,0,0,0.3);
-            z-index: 1000; /* High z-index to ensure it's on top */
+            z-index: 1000;
             text-align: center;
             max-width: 350px;
-            width: 90%; /* Responsive width */
+            width: 90%;
             box-sizing: border-box;
         }
         .message-box p {
@@ -107,7 +107,7 @@
         }
         .message-box button {
             margin-top: 15px;
-            width: auto; /* Allow button to size naturally */
+            width: auto;
             padding: 8px 25px;
         }
     </style>
@@ -117,7 +117,6 @@
     <div class="container">
         <h1>JavaScript Function Exercises</h1>
 
-        <!-- Exercise 1: Filter Negative Numbers -->
         <div>
             <h2>1. Filter Negative Numbers</h2>
             <label for="negNumInput">Enter numbers (comma-separated):</label>
@@ -126,7 +125,6 @@
             <div id="negNumResult" class="result"></div>
         </div>
 
-        <!-- Exercise 2: Difference with 13 -->
         <div>
             <h2>2. Difference with 13</h2>
             <label for="diffInput">Enter a number:</label>
@@ -135,7 +133,6 @@
             <div id="diffResult" class="result"></div>
         </div>
 
-        <!-- Exercise 3: Fibonacci Series -->
         <div>
             <h2>3. Fibonacci Series</h2>
             <label for="fibTermsInput">Enter number of terms:</label>
@@ -144,14 +141,12 @@
             <div id="fibResult" class="result"></div>
         </div>
 
-        <!-- Exercise 4: Sum of Multiples of 3 and 5 below 1000 -->
         <div>
             <h2>4. Sum of Multiples of 3 and 5 below 1000</h2>
             <button onclick="calculateMultiplesSum()">Calculate Sum</button>
             <div id="multiplesSumResult" class="result"></div>
         </div>
 
-        <!-- Exercise 5: Cube of a Number using Function Object -->
         <div>
             <h2>5. Cube of a Number</h2>
             <label for="cubeNumInput">Enter a number:</label>
@@ -161,14 +156,12 @@
         </div>
     </div>
 
-    <!-- Custom Message Box -->
     <div id="simpleMessageBox" class="message-box">
         <p id="simpleMessageBoxText"></p>
         <button onclick="hideSimpleMessageBox()">OK</button>
     </div>
 
     <script>
-        // --- Helper Functions ---
         function showSimpleMessageBox(message) {
             document.getElementById('simpleMessageBoxText').textContent = message;
             document.getElementById('simpleMessageBox').style.display = 'block';
@@ -185,16 +178,15 @@
         function showResult(id, message) {
             const resultElement = document.getElementById(id);
             resultElement.textContent = message;
-            resultElement.style.display = 'block'; // Ensure it's visible
+            resultElement.style.display = 'block';
         }
 
         function clearResult(id) {
             const resultElement = document.getElementById(id);
             resultElement.textContent = '';
-            resultElement.style.display = 'none'; // Hide it
+            resultElement.style.display = 'none';
         }
 
-        // --- Exercise 1: Filter Negative Numbers ---
         function filterNegativeNumbers() {
             clearResult('negNumResult');
             const input = getInputValue('negNumInput');
@@ -207,7 +199,6 @@
             showResult('negNumResult', `Filtered: ${filteredNumbers.join(', ')}`);
         }
 
-        // --- Exercise 2: Difference with 13 ---
         function calculateDifference() {
             clearResult('diffResult');
             const input = getInputValue('diffInput');
@@ -227,7 +218,6 @@
             showResult('diffResult', `Difference: ${difference}`);
         }
 
-        // --- Exercise 3: Fibonacci Series ---
         function generateFibonacci() {
             clearResult('fibResult');
             const input = getInputValue('fibTermsInput');
@@ -253,7 +243,6 @@
             showResult('fibResult', `Fibonacci: ${series.join(', ')}`);
         }
 
-        // --- Exercise 4: Sum of Multiples of 3 and 5 below 1000 ---
         function calculateMultiplesSum() {
             clearResult('multiplesSumResult');
             let sum = 0;
@@ -265,7 +254,6 @@
             showResult('multiplesSumResult', `Sum: ${sum}`);
         }
 
-        // --- Exercise 5: Cube of a Number ---
         function getCube() {
             clearResult('cubeResult');
             const input = getInputValue('cubeNumInput');
