@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Exception Handling</title>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            background-color: #f8fafc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+            box-sizing: border-box;
+        }
+        div {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            background-color: #fefefe;
+        }
+        h1 {
+            text-align: center;
+            color: #2d3748;
+            margin-bottom: 30px;
+            font-size: 2.2em;
+        }
+        h2 {
+            color: #4a5568;
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #4a5568;
+        }
+        input[type="text"],
+        input[type="number"] {
+            width: calc(100% - 12px);
+            padding: 10px;
+            border: 1px solid #cbd5e0;
+            border-radius: 6px;
+            box-sizing: border-box;
+            font-size: 1em;
+        }
+        button {
+            padding: 10px 20px;
+            margin-top: 15px;
+            background-color: #4299e1;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.2s ease-in-out;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #3182ce;
+        }
+        .result {
+            margin-top: 15px;
+            padding: 10px;
+            background-color: #e0f2f7;
+            color: #2c5282;
+            border-left: 4px solid #4299e1;
+            border-radius: 4px;
+            font-weight: bold;
+            display: none;
+        }
+        .message-box {
+            display: none;
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            border: 1px solid #ddd;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+            z-index: 1000;
+            text-align: center;
+            max-width: 350px;
+            width: 90%;
+            box-sizing: border-box;
+        }
+        .message-box p {
+            margin-bottom: 20px;
+            font-size: 1.1em;
+            color: #333;
+        }
+        .message-box button {
+            margin-top: 15px;
+            width: auto;
+            padding: 8px 25px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>JavaScript Exception Handling Exercises</h1>
+
+        <div>
+            <h2>1. Handle Undeclared Variable Error</h2>
+            <p>Click the button to try and access an undeclared variable. This will trigger a ReferenceError.</p>
+            <button onclick="handleUndeclaredVariable()">Trigger Error</button>
+            <div id="undeclaredResult" class="result"></div>
+        </div>
+
+        <div>
+            <h2>2. Throw Divide by Zero Error</h2>
+            <label for="numeratorInput">Numerator:</label>
+            <input type="number" id="numeratorInput" value="10">
+            <label for="denominatorInput">Denominator:</label>
+            <input type="number" id="denominatorInput" value="0">
+            <button onclick="divideNumbers()">Divide</button>
+            <div id="divideResult" class="result"></div>
+        </div>
+
+        <div>
+            <h2>3. Throw Out of Bounds Array Error</h2>
+            <label for="arrayOutOfBoundsInput">Enter array elements (comma-separated):</label>
+            <input type="text" id="arrayOutOfBoundsInput" placeholder="e.g. 1,2,3">
+            <label for="indexInput">Index to access:</label>
+            <input type="number" id="indexInput" value="5">
+            <button onclick="accessArrayIndex()">Access Array Index</button>
+            <div id="arrayOutOfBoundsResult" class="result"></div>
+        </div>
+
+        <div>
+            <h2>4. Exception Handling with Finally Statement</h2>
+            <p>This example demonstrates how code in the `finally` block always executes, regardless of whether an error occurred in the `try` block.</p>
+            <button onclick="finallyExample()">Run Example</button>
+            <div id="finallyResult" class="result"></div>
+        </div>
+
+    </div>
+
+    <div id="simpleMessageBox" class="message-box">
+        <p id="simpleMessageBoxText"></p>
+        <button onclick="hideSimpleMessageBox()">OK</button>
+    </div>
+
+    <script>
+        function showSimpleMessageBox(message) {
+            document.getElementById('simpleMessageBoxText').textContent = message;
+            document.getElementById('simpleMessageBox').style.display = 'block';
+        }
+
+        function hideSimpleMessageBox() {
+            document.getElementById('simpleMessageBox').style.display = 'none';
+        }
+
+        function getInputValue(id) {
+            return document.getElementById(id).value;
+        }
+
+        function showResult(id, message) {
+            const resultElement = document.getElementById(id);
+            resultElement.innerHTML = message;
+            resultElement.style.display = 'block';
+        }
+
+        function clearResult(id) {
+            const resultElement = document.getElementById(id);
+            resultElement.textContent = '';
+            resultElement.style.display = 'none';
+        }
+
+        function handleUndeclaredVariable() {
+            clearResult('undeclaredResult');
+            try {
+                showResult('undeclaredResult', `Attempting to print: ${undeclaredVar}`);
+            } catch (error) {
+                if (error instanceof ReferenceError) {
+                    showResult('undeclaredResult', `Caught ReferenceError: ${error.message}<br>Explanation: The variable 'undeclaredVar' was not declared before being accessed.`);
+                } else {
+                    showResult('undeclaredResult', `Caught unexpected error: ${error.message}`);
+                }
+            }
+        }
+
+        function divideNumbers() {
+            clearResult('divideResult');
+            const numerator = parseFloat(getInputValue('numeratorInput'));
+            const denominator = parseFloat(getInputValue('denominatorInput'));
+
+            try {
+                if (isNaN(numerator) || isNaN(denominator)) {
+                    throw new Error("Invalid input: Please enter valid numbers for both numerator and denominator.");
+                }
+                if (denominator === 0) {
+                    throw new Error("Divide by Zero Error: Division by zero is not allowed.");
+                }
+                const result = numerator / denominator;
+                showResult('divideResult', `Result: ${result}`);
+            } catch (error) {
+                showResult('divideResult', `Error: ${error.message}`);
+            }
+        }
+
+        function accessArrayIndex() {
+            clearResult('arrayOutOfBoundsResult');
+            const input = getInputValue('arrayOutOfBoundsInput');
+            const index = parseInt(getInputValue('indexInput'));
+
+            const elements = input.trim() ? input.split(',').map(item => item.trim()) : [];
+            const arrayLength = elements.length;
+
+            try {
+                if (isNaN(index)) {
+                    throw new Error("Invalid index: Please enter a valid number for the index.");
+                }
+                if (index < 0 || index >= arrayLength) {
+                    throw new Error(`Out of Bounds Error: Index ${index} is not present in an array of length ${arrayLength}. Valid indices are 0 to ${arrayLength - 1}.`);
+                }
+                showResult('arrayOutOfBoundsResult', `Value at index ${index}: ${elements[index]}`);
+            } catch (error) {
+                showResult('arrayOutOfBoundsResult', `Error: ${error.message}`);
+            }
+        }
+
+        function finallyExample() {
+            clearResult('finallyResult');
+            let output = [];
+            try {
+                output.push("Inside try block: Code execution begins here.");
+                // throw new Error("Simulated error from try block!");
+            } catch (error) {
+                output.push(`Inside catch block: Error caught - ${error.message}`);
+            } finally {
+                output.push("Inside finally block: This always executes after try/catch.");
+            }
+            output.push("After try...catch...finally block: Program continues execution.");
+            showResult('finallyResult', output.join('<br>'));
+        }
+    </script>
+</body>
+</html>
