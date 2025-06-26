@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Additional JS Exercises</title>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            background-color: #f8fafc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+            box-sizing: border-box;
+        }
+        div {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            background-color: #fefefe;
+        }
+        h1 {
+            text-align: center;
+            color: #2d3748;
+            margin-bottom: 30px;
+            font-size: 2.2em;
+        }
+        h2 {
+            color: #4a5568;
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #4a5568;
+        }
+        input[type="text"],
+        input[type="number"] {
+            width: calc(100% - 12px);
+            padding: 10px;
+            border: 1px solid #cbd5e0;
+            border-radius: 6px;
+            box-sizing: border-box;
+            font-size: 1em;
+        }
+        button {
+            padding: 10px 20px;
+            margin-top: 15px;
+            background-color: #4299e1;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.2s ease-in-out;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #3182ce;
+        }
+        .result {
+            margin-top: 15px;
+            padding: 10px;
+            background-color: #e0f2f7;
+            color: #2c5282;
+            border-left: 4px solid #4299e1;
+            border-radius: 4px;
+            font-weight: bold;
+            display: none;
+        }
+        .message-box {
+            display: none;
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            border: 1px solid #ddd;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+            z-index: 1000;
+            text-align: center;
+            max-width: 350px;
+            width: 90%;
+            box-sizing: border-box;
+        }
+        .message-box p {
+            margin-bottom: 20px;
+            font-size: 1.1em;
+            color: #333;
+        }
+        .message-box button {
+            margin-top: 15px;
+            width: auto;
+            padding: 8px 25px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Additional JavaScript Exercises</h1>
+
+        <div>
+            <h2>1. Print Name and Address</h2>
+            <button onclick="printNameAndAddress()">Show Info</button>
+            <div id="nameAddressResult" class="result"></div>
+        </div>
+
+        <div>
+            <h2>2. Check Value and Data Type</h2>
+            <label for="var1Input">Variable 1 Value:</label>
+            <input type="text" id="var1Input" placeholder="e.g. 10 or 'hello'">
+            <label for="var2Input">Variable 2 Value:</label>
+            <input type="text" id="var2Input" placeholder="e.g. '10' or 10">
+            <button onclick="checkValueAndDataType()">Check</button>
+            <div id="compareResult" class="result"></div>
+        </div>
+
+        <div>
+            <h2>3. Add Two Strings (Uppercase)</h2>
+            <label for="string1Input">String 1:</label>
+            <input type="text" id="string1Input" placeholder="e.g. hello">
+            <label for="string2Input">String 2:</label>
+            <input type="text" id="string2Input" placeholder="e.g. world">
+            <button onclick="addStringsAndCapitalize()">Concatenate & Capitalize</button>
+            <div id="concatCapitalizeResult" class="result"></div>
+        </div>
+
+        <div>
+            <h2>4. String Length in Bytes</h2>
+            <label for="stringByteInput">Enter a string:</label>
+            <input type="text" id="stringByteInput" placeholder="e.g. Hello World">
+            <button onclick="getStringLengthInBytes()">Calculate Bytes</button>
+            <div id="stringByteResult" class="result"></div>
+        </div>
+
+        <div>
+            <h2>5. Round Number to Digits</h2>
+            <label for="numToRoundInput">Enter a number:</label>
+            <input type="number" id="numToRoundInput" step="any" placeholder="e.g. 123.4567">
+            <label for="digitsInput">Number of decimal places:</label>
+            <input type="number" id="digitsInput" min="0" value="2" placeholder="e.g. 2">
+            <button onclick="roundNumberToDigits()">Round Number</button>
+            <div id="roundNumResult" class="result"></div>
+        </div>
+
+    </div>
+
+    <div id="simpleMessageBox" class="message-box">
+        <p id="simpleMessageBoxText"></p>
+        <button onclick="hideSimpleMessageBox()">OK</button>
+    </div>
+
+    <script>
+        function showSimpleMessageBox(message) {
+            document.getElementById('simpleMessageBoxText').textContent = message;
+            document.getElementById('simpleMessageBox').style.display = 'block';
+        }
+
+        function hideSimpleMessageBox() {
+            document.getElementById('simpleMessageBox').style.display = 'none';
+        }
+
+        function getInputValue(id) {
+            return document.getElementById(id).value;
+        }
+
+        function showResult(id, message) {
+            const resultElement = document.getElementById(id);
+            resultElement.innerHTML = message;
+            resultElement.style.display = 'block';
+        }
+
+        function clearResult(id) {
+            const resultElement = document.getElementById(id);
+            resultElement.textContent = '';
+            resultElement.style.display = 'none';
+        }
+
+        function printNameAndAddress() {
+            clearResult('nameAddressResult');
+            const name = "John Doe";
+            const address = "123 Main Street, Anytown, USA";
+            showResult('nameAddressResult', `Name: ${name}<br>Address: ${address}`);
+        }
+
+        function checkValueAndDataType() {
+            clearResult('compareResult');
+            const val1Input = document.getElementById('var1Input').value;
+            const val2Input = document.getElementById('var2Input').value;
+
+            let val1;
+            try {
+                val1 = JSON.parse(val1Input);
+            } catch (e) {
+                val1 = val1Input;
+            }
+
+            let val2;
+            try {
+                val2 = JSON.parse(val2Input);
+            } catch (e) {
+                val2 = val2Input;
+            }
+
+            if (val1 === val2) {
+                showResult('compareResult', `Value and data type are SAME: <br>Var 1: ${val1} (${typeof val1})<br>Var 2: ${val2} (${typeof val2})`);
+            } else {
+                showResult('compareResult', `Value or data type are DIFFERENT: <br>Var 1: ${val1} (${typeof val1})<br>Var 2: ${val2} (${typeof val2})`);
+            }
+        }
+
+        function addStringsAndCapitalize() {
+            clearResult('concatCapitalizeResult');
+            const string1 = getInputValue('string1Input');
+            const string2 = getInputValue('string2Input');
+
+            if (!string1.trim() && !string2.trim()) {
+                showSimpleMessageBox("Please enter at least one string.");
+                return;
+            }
+
+            const combinedString = (string1 + string2).toUpperCase();
+            showResult('concatCapitalizeResult', `Combined (Uppercase): ${combinedString}`);
+        }
+
+        function getStringLengthInBytes() {
+            clearResult('stringByteResult');
+            const inputString = getInputValue('stringByteInput');
+
+            if (!inputString.trim()) {
+                showSimpleMessageBox("Please enter a string to calculate its byte length.");
+                return;
+            }
+
+            const encoder = new TextEncoder();
+            const encoded = encoder.encode(inputString);
+            showResult('stringByteResult', `Length in bytes: ${encoded.length} bytes`);
+        }
+
+        function roundNumberToDigits() {
+            clearResult('roundNumResult');
+            const numInput = getInputValue('numToRoundInput');
+            const digitsInput = getInputValue('digitsInput');
+
+            const number = parseFloat(numInput);
+            const digits = parseInt(digitsInput);
+
+            if (isNaN(number)) {
+                showSimpleMessageBox("Please enter a valid number to round.");
+                return;
+            }
+            if (isNaN(digits) || digits < 0) {
+                showSimpleMessageBox("Please enter a non-negative integer for decimal places.");
+                return;
+            }
+
+            const roundedNumber = number.toFixed(digits);
+            showResult('roundNumResult', `Rounded number: ${roundedNumber}`);
+        }
+    </script>
+</body>
+</html>
